@@ -31,7 +31,7 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Copy csv 2 Blob2",
+						"name": "Copy csv 2 Blob",
 						"type": "Copy",
 						"dependsOn": [
 							{
@@ -74,7 +74,7 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "DS2",
+								"referenceName": "DS",
 								"type": "DatasetReference",
 								"parameters": {
 									"Schema": "Schema",
@@ -84,7 +84,7 @@
 						],
 						"outputs": [
 							{
-								"referenceName": "Blob_csv2",
+								"referenceName": "Blob_csv",
 								"type": "DatasetReference",
 								"parameters": {
 									"Conainer": "csv",
@@ -100,7 +100,7 @@
 						]
 					},
 					{
-						"name": "Copy parquet 2 Blob2",
+						"name": "Copy parquet 2 Blob",
 						"type": "Copy",
 						"dependsOn": [
 							{
@@ -141,7 +141,7 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "DS2",
+								"referenceName": "DS",
 								"type": "DatasetReference",
 								"parameters": {
 									"Schema": "Schema",
@@ -151,7 +151,7 @@
 						],
 						"outputs": [
 							{
-								"referenceName": "Blob_parquet2",
+								"referenceName": "Blob_parquet",
 								"type": "DatasetReference",
 								"parameters": {
 									"Container": "parquet",
@@ -198,11 +198,11 @@
 						}
 					},
 					{
-						"name": "Copy csv 2 DB2",
+						"name": "Copy csv 2 DB",
 						"type": "Copy",
 						"dependsOn": [
 							{
-								"activity": "Copy csv 2 Blob2",
+								"activity": "Copy csv 2 Blob",
 								"dependencyConditions": [
 									"Succeeded"
 								]
@@ -251,7 +251,7 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "Blob_csv2",
+								"referenceName": "Blob_csv",
 								"type": "DatasetReference",
 								"parameters": {
 									"Conainer": "csv",
@@ -267,7 +267,7 @@
 						],
 						"outputs": [
 							{
-								"referenceName": "DS2",
+								"referenceName": "DS",
 								"type": "DatasetReference",
 								"parameters": {
 									"Schema": "dbo",
@@ -277,11 +277,11 @@
 						]
 					},
 					{
-						"name": "Copy parquet 2 DB2",
+						"name": "Copy parquet 2 DB",
 						"type": "Copy",
 						"dependsOn": [
 							{
-								"activity": "Copy parquet 2 Blob2",
+								"activity": "Copy parquet 2 Blob",
 								"dependencyConditions": [
 									"Succeeded"
 								]
@@ -330,7 +330,7 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "Blob_csv2",
+								"referenceName": "Blob_csv",
 								"type": "DatasetReference",
 								"parameters": {
 									"Conainer": "parquet",
@@ -346,7 +346,7 @@
 						],
 						"outputs": [
 							{
-								"referenceName": "DS2",
+								"referenceName": "DS",
 								"type": "DatasetReference",
 								"parameters": {
 									"Schema": "dbo",
@@ -371,13 +371,13 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/DS2')]",
-				"[concat(variables('factoryId'), '/datasets/Blob_csv2')]",
-				"[concat(variables('factoryId'), '/datasets/Blob_parquet2')]"
+				"[concat(variables('factoryId'), '/datasets/DS')]",
+				"[concat(variables('factoryId'), '/datasets/Blob_csv')]",
+				"[concat(variables('factoryId'), '/datasets/Blob_parquet')]"
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Blob_csv2')]",
+			"name": "[concat(parameters('factoryName'), '/Blob_csv')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -443,7 +443,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Blob_parquet2')]",
+			"name": "[concat(parameters('factoryName'), '/Blob_parquet')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -492,7 +492,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/DS2')]",
+			"name": "[concat(parameters('factoryName'), '/DS')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
