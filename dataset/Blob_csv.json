@@ -1,5 +1,5 @@
 {
-	"name": "Blob_csv2",
+	"name": "Blob_csv",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "Blob2",
